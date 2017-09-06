@@ -1,0 +1,20 @@
+@media (min-width: 55em) {
+    main {
+        margin: auto;
+        width: 55em;
+    }
+}
+
+.mdc-toolbar-fixed-adjust {
+    margin-top: 80px;
+}
+
+.mdc-card {
+    margin-top: 2em;
+}
+
+#about .mdc-card__media {
+    background: url("https://upload.wikimedia.org/wikipedia/commons/6/67/Tpt-IMG_4764.jpg") no-repeat;
+    background-size: cover;
+    height: 90px;
+}
