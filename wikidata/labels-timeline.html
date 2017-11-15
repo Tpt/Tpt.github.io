@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Timeline of Wikidata labels</title>
+</head>
+<body>
+<link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript" src="https://unpkg.com/jquery@latest/dist/jquery.min.js"></script>
+<main>
+    <form class="mdc-card" id="config-form" style="padding: 1em; max-width: 55em; margin: auto;">
+        <h1 class="mdc-typography--display1">Generate the timeline of labels of a Wikidata entity</h1>
+        <div class="mdc-text-field" data-mdc-auto-init="MDCTextField">
+            <input type="text" name="entity" id="entity-id" class="mdc-text-field__input" required pattern="[qpQP]\d+">
+            <label class="mdc-text-field__label" for="entity-id">Entity ID (like "P31" or "Q42")</label>
+            <div class="mdc-text-field__bottom-line"></div>
+        </div>
+        <div class="mdc-text-field" data-mdc-auto-init="MDCTextField">
+            <input type="text" name="lang" id="lang" class="mdc-text-field__input" required value="en">
+            <label class="mdc-text-field__label" for="lang">Language code (like "en")</label>
+            <div class="mdc-text-field__bottom-line"></div>
+        </div>
+        <button type="submit" class="mdc-button mdc-button--raised mdc-ripple-surface" data-mdc-auto-init="MDCRipple">
+            Generate
+        </button>
+    </form>
+    <div id="timeline" class="mdc-card" style="margin-top: 2em;">
+        <div role="progressbar" class="mdc-linear-progress mdc-linear-progress--indeterminate">
+            <div class="mdc-linear-progress__buffering-dots"></div>
+            <div class="mdc-linear-progress__buffer"></div>
+            <div class="mdc-linear-progress__bar mdc-linear-progress__primary-bar">
+                <span class="mdc-linear-progress__bar-inner"></span>
+            </div>
+            <div class="mdc-linear-progress__bar mdc-linear-progress__secondary-bar">
+                <span class="mdc-linear-progress__bar-inner"></span>
+            </div>
+        </div>
+        <div style="text-align: center;">The loading may take up to a minute.</div>
+    </div>
+</main>
+<script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+<script>
+    $(function () {
+        let params = new URLSearchParams(location.search);
+        let id = params.get('entity');
+        let lang = params.get('lang');
+        if (id === null || lang === null) {
+            $('#timeline').empty();
+            window.mdc.autoInit();
+            return;
+        }
+        id = id.toUpperCase();
+        lang = lang.toLowerCase();
+        $('#entity-id').val(id);
+        $('#lang').val(lang);
+        window.mdc.autoInit();
+
+        let pageTitle = '';
+        switch (id[0]) {
+            case 'Q':
+                pageTitle = id;
+                break;
+            case 'P':
+                pageTitle = "Property:" + id;
+                break;
+            default:
+                alert('Invalid entity id ' + id);
+                return;
+        }
+
+        let revisions_labels = [];
+        let revisions_times = [];
+
+        function doLoading(params, callback) {
+            $.ajax({
+                url: 'https://www.wikidata.org/w/api.php',
+                data: params,
+                dataType: 'jsonp'
+            }).done(function (data) {
+                if ('query' in data && 'pages' in data['query']) {
+                    $.each(data['query']['pages'], function (_, page) {
+                        if ('revisions' in page) {
+                            for (const rev of page['revisions']) {
+                                const structure = JSON.parse(rev['*']);
+                                let labels = {};
+                                if ('labels' in structure) {
+                                    $.each(structure['labels'], function (lang, label) {
+                                        if (typeof label === 'object') {
+                                            labels[label['language']] = label['value'];
+                                        } else {
+                                            labels[lang] = label;
+                                        }
+                                    });
+                                }
+                                revisions_labels.push(labels);
+                                revisions_times.push(new Date(rev['timestamp']));
+                            }
+                        }
+                    });
+                }
+                if ('continue' in data) {
+                    for (const i in data['continue']) {
+                        params[i] = data['continue'][i];
+                    }
+                    doLoading(params, callback);
+                } else {
+                    callback();
+                }
+            });
+        }
+
+        doLoading({
+            'action': 'query',
+            'format': 'json',
+            'prop': 'revisions',
+            'titles': pageTitle,
+            'rvprop': 'timestamp|content',
+            'rvlimit': '50'
+        }, function () {
+            //Fake empty first revision
+            revisions_labels.push([]);
+            revisions_times.push(revisions_times[revisions_times.length - 1]);
+
+            let current_label = revisions_labels[0][lang];
+            let current_remove_date = new Date();
+            let data_rows = [];
+            for (let i = 1; i < revisions_labels.length; i++) {
+                const new_label = revisions_labels[i][lang];
+                if (current_label !== new_label) {
+                    data_rows.push([current_label + '', revisions_times[i], current_remove_date]);
+                    current_label = new_label;
+                    current_remove_date = revisions_times[i];
+                }
+            }
+
+            if (data_rows.length === 0) {
+                $('#timeline').empty();
+                alert('No labels found in entity ' + id + ' for language code ' + lang);
+            }
+
+            google.charts.load('current', {'packages': ['timeline']});
+            google.charts.setOnLoadCallback(function () {
+                $('#timeline').empty();
+                let chart = new google.visualization.Timeline(document.getElementById('timeline'));
+                let dataTable = new google.visualization.DataTable();
+                dataTable.addColumn({type: 'string', id: 'Label'});
+                dataTable.addColumn({type: 'datetime', id: 'Start'});
+                dataTable.addColumn({type: 'datetime', id: 'End'});
+                dataTable.addRows(data_rows);
+                chart.draw(dataTable);
+            });
+        });
+    });
+</script>
+</body>
+</html>
