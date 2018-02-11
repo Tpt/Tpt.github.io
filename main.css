@@ -11,10 +11,14 @@
 
 .mdc-card {
     margin-top: 2em;
+    padding: 1em;
 }
 
-#about .mdc-card__media {
-    background: url("https://upload.wikimedia.org/wikipedia/commons/6/67/Tpt-IMG_4764.jpg") no-repeat;
-    background-size: cover;
-    height: 90px;
+#about-content {
+    display: block;
+}
+
+#about-img {
+    float: right;
+    width: 120px;
 }
