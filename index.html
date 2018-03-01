@@ -25,69 +25,71 @@
             "url": "https://thomas.pellissier-tanon.fr/"
         }
 
+
     </script>
 </head>
 <body class="mdc-typography">
-<header class="mdc-toolbar mdc-toolbar--fixed">
-    <div class="mdc-toolbar__row">
-        <section class="mdc-toolbar__section">
-            <span class="mdc-toolbar__title">Thomas Pellissier Tanon</span>
-        </section>
-    </div>
-</header>
-<main class="mdc-toolbar-fixed-adjust">
-    <section class="mdc-card">
-        <div id="about-content">
-            <img id="about-img" src="img/thomas-2016.jpg">
-            <h1 class="mdc-typography--title">Thomas Pellissier Tanon</h1>
-            <h2 class="mdc-typography--subheading1">PhD student</h2>
-            <div class="mdc-typography--body1">
-                <p>
-                    Thomas Pellissier Tanon is a PhD student at <a href="https://www.telecom-paristech.fr">Télécom
-                    ParisTech</a> under the supervision of
-                    <a href="https://suchanek.name">Fabian Suchanek</a> and <a href="https://a3nm.net">Antoine Amarilli</a>.
-                </p>
-                <p>His email address is first name at pellissier-tanon.fr</p>
-            </div>
+<main>
+    <div id="about">
+        <h1 class="mdc-typography--display3">Thomas Pellissier Tanon</h1>
+        <img id="about-img" src="img/thomas-2016.jpg">
+        <div class="mdc-typography--body1">
+            <p>
+                Thomas Pellissier Tanon is a PhD student at <a href="https://www.telecom-paristech.fr">Télécom
+                ParisTech</a> under the supervision of
+                <a href="https://suchanek.name">Fabian Suchanek</a> and <a href="https://a3nm.net">Antoine Amarilli</a>.
+            </p>
+            <p>His email address is first name at pellissier-tanon.fr</p>
         </div>
-    </section>
+    </div>
 
-    <section id="publi" class="mdc-card">
-        <h1 class="mdc-typography--title">Publications</h1>
-        <ul class="mdc-list mdc-list--two-line">
-            <li class="mdc-list-item">
-                <span class="mdc-list-item__text">
-                    Completeness-aware Rule Learning from Knowledge Graphs
-                    <span class="mdc-list-item__secondary-text">Thomas Pellissier Tanon, Daria Stepanova, Simon Razniewski, Paramita Mirza and Gerhard Weikum, ISWC 2017.</span>
-                </span>
-                <a href="papers/2017-ISWC-completeness.pdf" class="mdc-list-item__end-detail material-icons"
-                   title="Open the paper">insert_drive_file</a>
-            </li>
-            <li class="mdc-list-item">
-                <span class="mdc-list-item__text">
-                    Question Answering Benchmarks for Wikidata
-                    <span class="mdc-list-item__secondary-text">Dennis Diefenbach, Thomas Pellissier Tanon, Kamal Singh and Pierre Maret, ISWC 2017.</span>
-                </span>
-                <a href="papers/2017-ISWC-questionanswering.pdf" class="mdc-list-item__end-detail material-icons"
-                   title="Open the paper">insert_drive_file</a>
-            </li>
-            <li class="mdc-list-item">
-                <span class="mdc-list-item__text">
-                    Thymeflow, a personal knowledge base with spatio-temporal data
-                    <span class="mdc-list-item__secondary-text">David Montoya, Thomas Pellissier Tanon, Serge Abiteboul and Fabian Suchanek, CIKM 2016.</span>
-                </span>
-                <a href="papers/2016-CIKM-thymeflow.pdf" class="mdc-list-item__end-detail material-icons"
-                   title="Open the paper">insert_drive_file</a>
-            </li>
-            <li class="mdc-list-item">
-                <span class="mdc-list-item__text">
-                    From Freebase to Wikidata: The Great Migration
-                    <span class="mdc-list-item__secondary-text">Thomas Pellissier Tanon, Denny Vrandecic, Sebastian Schaffert, Thomas Steiner and Lydia Pintscher, WWW 2016.</span>
-                </span>
-                <a href="papers/2016-WWW-freebase.pdf" class="mdc-list-item__end-detail material-icons"
-                   title="Open the paper">insert_drive_file</a>
-            </li>
-        </ul>
+    <section id="publi">
+        <div>
+            <h2 id="publi-title" class="mdc-typography--display1">Publications</h2>
+            <ul id="publi-list">
+                <li>
+                    <section class="public-card mdc-card">
+                        <h3 class="mdc-typography--title">Completeness-aware Rule Learning from Knowledge Graphs</h3>
+                        <p class="mdc-typography--body1">Thomas Pellissier Tanon, Daria Stepanova, Simon Razniewski, Paramita
+                            Mirza and Gerhard Weikum, ISWC 2017.<br />Nominated for the best student paper award.</p>
+                        <div class="mdc-card__actions">
+                            <a href="papers/2017-ISWC-completeness.pdf"
+                               class="mdc-button mdc-card__action mdc-card__action--button">Paper</a>
+                        </div>
+                    </section>
+                </li>
+                <li>
+                    <section class="public-card mdc-card">
+                        <h3 class="mdc-typography--title">Question Answering Benchmarks for Wikidata</h3>
+                        <p class="mdc-typography--body1">Dennis Diefenbach, Thomas Pellissier Tanon, Kamal Singh and Pierre Maret, ISWC 2017 poster session.</p>
+                        <div class="mdc-card__actions">
+                            <a href="papers/2017-ISWC-questionanswering.pdf"
+                               class="mdc-button mdc-card__action mdc-card__action--button">Paper</a>
+                        </div>
+                    </section>
+                </li>
+                <li>
+                    <section class="public-card mdc-card">
+                        <h3 class="mdc-typography--title">Thymeflow, a personal knowledge base with spatio-temporal data</h3>
+                        <p class="mdc-typography--body1">David Montoya, Thomas Pellissier Tanon, Serge Abiteboul and Fabian Suchanek, CIKM 2016 demo session.</p>
+                        <div class="mdc-card__actions">
+                            <a href="papers/2016-CIKM-thymeflow.pdf"
+                               class="mdc-button mdc-card__action mdc-card__action--button">Paper</a>
+                        </div>
+                    </section>
+                </li>
+                <li>
+                    <section class="public-card mdc-card">
+                        <h3 class="mdc-typography--title">From Freebase to Wikidata: The Great Migration</h3>
+                        <p class="mdc-typography--body1">Thomas Pellissier Tanon, Denny Vrandecic, Sebastian Schaffert, Thomas Steiner and Lydia Pintscher, WWW 2016.</p>
+                        <div class="mdc-card__actions">
+                            <a href="papers/2016-WWW-freebase.pdf"
+                               class="mdc-button mdc-card__action mdc-card__action--button">Paper</a>
+                        </div>
+                    </section>
+                </li>
+            </ul>
+        </div>
     </section>
 </main>
 </body>

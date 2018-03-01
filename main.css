@@ -1,24 +1,47 @@
-@media (min-width: 55em) {
-    main {
-        margin: auto;
-        width: 55em;
-    }
-}
-
-.mdc-toolbar-fixed-adjust {
-    margin-top: 80px;
-}
-
-.mdc-card {
-    margin-top: 2em;
-    padding: 1em;
-}
-
-#about-content {
+article, aside, details, figcaption, figure, footer, header, main, menu, nav, section, summary {
     display: block;
 }
 
+#about {
+    padding-top: 2em;
+    padding-bottom: 0.5em;
+    text-align: center;
+}
+
 #about-img {
-    float: right;
+    margin: auto;
     width: 120px;
+}
+
+#publi {
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    background-color: #dddddd;
+    margin-left: -1em;
+    margin-right: -1em;
+}
+
+#publi-title {
+    text-align: center;
+}
+
+#publi-list {
+    display: flex;
+    flex-flow: row wrap;
+    margin-left: -1.5em;
+}
+
+#publi-list li {
+    display: block;
+    max-width: 42em;
+    margin: auto;
+    padding: 0.5em;
+}
+
+.public-card h3 {
+    margin: 1em;
+}
+
+.public-card p {
+    margin: 1em;
 }
