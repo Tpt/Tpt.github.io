@@ -1,28 +1,29 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Timeline of Wikidata labels</title>
+    <link rel="stylesheet"
+          href="//tools-static.wmflabs.org/cdnjs/ajax/libs/material-design-icons/3.0.1/iconfont/material-icons.min.css">
+    <link rel="stylesheet"
+          href="//tools-static.wmflabs.org/cdnjs/ajax/libs/material-components-web/3.1.0/material-components-web.min.css">
+    <script type="text/javascript" src="//www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript"
+            src="//tools-static.wmflabs.org/cdnjs/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="//tools-static.wmflabs.org/cdnjs/ajax/libs/material-components-web/3.1.0/material-components-web.min.js"></script>
 </head>
 <body>
-<link rel="stylesheet" href="https://unpkg.com/material-components-web@v0.44.0/dist/material-components-web.min.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-<script type="text/javascript" src="https://unpkg.com/jquery@3.3.1/dist/jquery.min.js"></script>
-<script src="https://unpkg.com/material-components-web@v0.44.0/dist/material-components-web.min.js"></script>
 <main>
     <form class="mdc-card" id="config-form" style="padding: 1em; max-width: 55em; margin: auto;">
         <h1 class="mdc-typography--headline2">Generate the timeline of labels of a Wikidata entity</h1>
         <div class="mdc-text-field" data-mdc-auto-init="MDCTextField">
             <input type="text" name="entity" id="entity-id" class="mdc-text-field__input" required pattern="[qpQP]\d+">
             <label class="mdc-floating-label" for="entity-id">Entity ID (like "P31" or "Q42")</label>
-            <div class="mdc-text-field__bottom-line"></div>
         </div>
         <div class="mdc-text-field" data-mdc-auto-init="MDCTextField">
             <input type="text" name="lang" id="lang" class="mdc-text-field__input" required value="en">
             <label class="mdc-floating-label" for="lang">Language code (like "en")</label>
-            <div class="mdc-text-field__bottom-line"></div>
         </div>
         <button type="submit" class="mdc-button mdc-button--raised mdc-ripple-surface" data-mdc-auto-init="MDCRipple">
             Generate
