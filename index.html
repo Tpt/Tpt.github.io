@@ -1,13 +1,15 @@
 <!DOCTYPE html>
-<html class="mdc-typography">
+<html class="mdc-typography" lang="en">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta content="width=device-width,initial-scale=1" name="viewport">
     <title>Thomas Pellissier-Tanon</title>
-    <link rel="canonical" href="https://thomas.pellissier-tanon.fr/">
-    <link rel="stylesheet"
-          href="//tools-static.wmflabs.org/cdnjs/ajax/libs/material-components-web/3.1.0/material-components-web.min.css">
-    <link rel="stylesheet" href="main.css">
+    <link href="https://thomas.pellissier-tanon.fr/" rel="canonical">
+    <link href="//tools-static.wmflabs.org/cdnjs/ajax/libs/material-components-web/3.1.1/material-components-web.min.css"
+          rel="stylesheet">
+    <link href="//tools-static.wmflabs.org/cdnjs/ajax/libs/material-design-icons/3.0.1/iconfont/material-icons.min.css"
+          rel="stylesheet">
+    <link href="main.css" rel="stylesheet">
     <script type="application/ld+json">
         {
             "@context": "http://schema.org",
@@ -30,7 +32,7 @@
 <main>
     <div id="about">
         <h1 class="mdc-typography--headline2">Thomas Pellissier Tanon</h1>
-        <img id="about-img" src="img/thomas-2016.jpg">
+        <img alt="A photo of Thomas" id="about-img" src="img/thomas-2016.jpg">
         <div class="mdc-typography--body1">
             <p>
                 Thomas Pellissier Tanon is a PhD student at <a href="https://www.telecom-paris.fr">Télécom
@@ -39,199 +41,173 @@
             </p>
             <p>
                 His email address is first name at pellissier-tanon.fr
-                (<a rel="pgpkey" href="public-key.asc">OpenPGP public key 2675F0C4</a>)
+                (<a href="public-key.asc" rel="pgpkey">OpenPGP public key 2675F0C4</a>)
             </p>
         </div>
     </div>
 
-    <section id="publi">
-        <div>
-            <h2 id="publi-title" class="mdc-typography--headline4">Publications</h2>
-            <ul id="publi-list">
-                <li>
-                    <section class="public-card mdc-card">
-                        <h3 class="mdc-typography--headline5">Learning How to Correct a Knowledge Base
-                            from the Edit History</h3>
-                        <p class="mdc-typography--body1">
-                            Thomas Pellissier Tanon,
-                            <a href="https://www.di.ens.fr/camille.bourgaux/">Camille Bourgaux</a> and
-                            <a href="https://suchanek.name">Fabian Suchanek</a>,
-                            <a href="https://www2019.thewebconf.org/">The Web Conference 2019</a>.
-                        </p>
-                        <div class="mdc-card__actions">
-                            <a href="papers/2019-WWW-corhist.pdf"
-                               class="mdc-button mdc-card__action mdc-card__action--button">Paper</a>
-                        </div>
-                    </section>
-                </li>
-                <li>
-                    <section class="public-card mdc-card">
-                        <h3 class="mdc-typography--headline5">Querying the Edit History of Wikidata</h3>
-                        <p class="mdc-typography--body1">
-                            Thomas Pellissier Tanon and
-                            <a href="https://suchanek.name">Fabian Suchanek</a>,
-                            <a href="https://2019.eswc-conferences.org/">ESWC 2019</a> demo session.
-                        </p>
-                        <div class="mdc-card__actions">
-                            <a href="papers/2019-ESWC-wikidatahistory.pdf"
-                               class="mdc-button mdc-card__action mdc-card__action--button">Paper</a>
-                        </div>
-                    </section>
-                </li>
-                <li>
-                    <section class="public-card mdc-card">
-                        <h3 class="mdc-typography--headline5">Bash Datalog: Answering Datalog Queries with Unix Shell
-                            Commands</h3>
-                        <p class="mdc-typography--body1">
-                            <a href="https://www.thomasrebele.org">Thomas Rebele</a>,
-                            Thomas Pellissier Tanon and
-                            <a href="https://suchanek.name">Fabian Suchanek</a>,
-                            <a href="http://iswc2018.semanticweb.org">ISWC 2018</a>.
-                            <br/>Spotlight paper.
-                        </p>
-                        <div class="mdc-card__actions">
-                            <a href="papers/2018-ISWC-bashlog.pdf"
-                               class="mdc-button mdc-card__action mdc-card__action--button">Paper</a>
-                        </div>
-                    </section>
-                </li>
-                <li>
-                    <section class="public-card mdc-card">
-                        <h3 class="mdc-typography--headline5">Completeness-aware Rule Learning from Knowledge
-                            Graphs</h3>
-                        <p class="mdc-typography--body1">Thomas Pellissier Tanon,
-                            Daria Stepanova,
-                            <a href="http://simonrazniewski.com/">Simon Razniewski</a>,
-                            <a href="http://paramitamirza.com/">Paramita Mirza</a> and
-                            Gerhard Weikum,
-                            <a href="https://www.ijcai-18.org/">IJCAI 2018</a>.
-                            <br/>Short version of <a href="#2017-ISWC-completeness">the ISWC paper</a> for the Sister
-                            Conference Best Paper track.
-                        </p>
-                        <div class="mdc-card__actions">
-                            <a href="papers/2018-IJCAI-completeness.pdf"
-                               class="mdc-button mdc-card__action mdc-card__action--button">Paper</a>
-                        </div>
-                    </section>
-                </li>
-                <li>
-                    <section class="public-card mdc-card">
-                        <h3 class="mdc-typography--headline5">Demoing Platypus – A Multilingual Question Answering
-                            Platform for Wikidata</h3>
-                        <p class="mdc-typography--body1">
-                            Thomas Pellissier Tanon,
-                            <a href="http://www.marcosassuncao.com">Marcos Dias de Assunção</a>,
-                            Eddy Caron and
-                            <a href="https://suchanek.name">Fabian Suchanek</a>,
-                            <a href="https://2018.eswc-conferences.org">ESWC 2018</a> demo session.
-                        </p>
-                        <div class="mdc-card__actions">
-                            <a href="papers/2018-ESWC-platypus.pdf"
-                               class="mdc-button mdc-card__action mdc-card__action--button">Paper</a>
-                        </div>
-                    </section>
-                </li>
-                <li>
-                    <section class="public-card mdc-card">
-                        <h3 class="mdc-typography--headline5">Property Label Stability in Wikidata</h3>
-                        <p class="mdc-typography--body1">
-                            Thomas Pellissier Tanon and
-                            Lucie-Aimée Kaffe,
-                            <a href="http://wikiworkshop.org/2018/">WikiWorkshop 2018</a>.
-                        </p>
-                        <div class="mdc-card__actions">
-                            <a href="papers/2018-wiki-wikidataproperties.pdf"
-                               class="mdc-button mdc-card__action mdc-card__action--button">Paper</a>
-                        </div>
-                    </section>
-                </li>
-                <li>
-                    <section class="public-card mdc-card">
-                        <h3 class="mdc-typography--headline5">A Knowledge Base for Personal Information Management</h3>
-                        <p class="mdc-typography--body1">
-                            David Montoya,
-                            Thomas Pellissier Tanon,
-                            <a href="https://abiteboul.com">Serge Abiteboul</a>,
-                            <a href="http://pierre.senellart.com">Pierre Senellart</a> and
-                            <a href="https://suchanek.name">Fabian Suchanek</a>,
-                            <a href="http://events.linkeddata.org/ldow2018/">LDOW 2018</a>.
-                        </p>
-                        <div class="mdc-card__actions">
-                            <a href="papers/2018-LDOW-thymeflow.pdf"
-                               class="mdc-button mdc-card__action mdc-card__action--button">Paper</a>
-                        </div>
-                    </section>
-                </li>
-                <li>
-                    <section id="2017-ISWC-completeness" class="public-card mdc-card">
-                        <h3 class="mdc-typography--headline5">Completeness-aware Rule Learning from Knowledge
-                            Graphs</h3>
-                        <p class="mdc-typography--body1">Thomas Pellissier Tanon,
-                            Daria Stepanova,
-                            <a href="http://simonrazniewski.com/">Simon Razniewski</a>,
-                            <a href="http://paramitamirza.com/">Paramita Mirza</a> and
-                            Gerhard Weikum,
-                            <a href="https://iswc2017.semanticweb.org/">ISWC 2017</a>.
-                            <br/>Nominated for the best student paper award.
-                        </p>
-                        <div class="mdc-card__actions">
-                            <a href="papers/2017-ISWC-completeness.pdf"
-                               class="mdc-button mdc-card__action mdc-card__action--button">Paper</a>
-                        </div>
-                    </section>
-                </li>
-                <li>
-                    <section class="public-card mdc-card">
-                        <h3 class="mdc-typography--headline5">Question Answering Benchmarks for Wikidata</h3>
-                        <p class="mdc-typography--body1">
-                            Dennis Diefenbach,
-                            Thomas Pellissier Tanon,
-                            Kamal Singh and
-                            Pierre Maret,
-                            <a href="https://iswc2017.semanticweb.org/">ISWC 2017</a> poster session.
-                        </p>
-                        <div class="mdc-card__actions">
-                            <a href="papers/2017-ISWC-questionanswering.pdf"
-                               class="mdc-button mdc-card__action mdc-card__action--button">Paper</a>
-                        </div>
-                    </section>
-                </li>
-                <li>
-                    <section class="public-card mdc-card">
-                        <h3 class="mdc-typography--headline5">Thymeflow, a personal knowledge base with spatio-temporal
-                            data</h3>
-                        <p class="mdc-typography--body1">
-                            David Montoya,
-                            Thomas Pellissier Tanon,
-                            <a href="https://abiteboul.com">Serge Abiteboul</a> and
-                            <a href="https://suchanek.name">Fabian Suchanek</a>,
-                            <a href="http://cikm2016.cs.iupui.edu/">CIKM 2016</a> demo session.
-                        </p>
-                        <div class="mdc-card__actions">
-                            <a href="papers/2016-CIKM-thymeflow.pdf"
-                               class="mdc-button mdc-card__action mdc-card__action--button">Paper</a>
-                        </div>
-                    </section>
-                </li>
-                <li>
-                    <section class="public-card mdc-card">
-                        <h3 class="mdc-typography--headline5">From Freebase to Wikidata: The Great Migration</h3>
-                        <p class="mdc-typography--body1">
-                            Thomas Pellissier Tanon,
-                            <a href="http://denny.vrandecic.de">Denny Vrandečić</a>,
-                            Sebastian Schaffert,
-                            <a href="https://tomayac.com">Thomas Steiner</a> and
-                            <a href="http://lydiapintscher.de">Lydia Pintscher</a>,
-                            <a href="http://www2016.ca/">WWW 2016</a>.
-                        </p>
-                        <div class="mdc-card__actions">
-                            <a href="papers/2016-WWW-freebase.pdf"
-                               class="mdc-button mdc-card__action mdc-card__action--button">Paper</a>
-                        </div>
-                    </section>
-                </li>
-            </ul>
-        </div>
+    <section id="publi" class="mdc-card mdc-card--outlined">
+        <h2 class="mdc-typography--headline4">Publications</h2>
+        <ul class="mdc-list mdc-list--two-line">
+            <li class="mdc-list-item">
+                <span class="mdc-list-item__text">
+                    <span class="mdc-list-item__primary-text">Learning How to Correct a Knowledge Base from the Edit History</span>
+                    <span class="mdc-list-item__secondary-text">
+                        Thomas Pellissier Tanon,
+                        <a href="https://www.di.ens.fr/camille.bourgaux/">Camille Bourgaux</a> and
+                        <a href="https://suchanek.name">Fabian Suchanek</a>,
+                    </span>
+                    <span class="mdc-list-item__secondary-text">
+                        <a href="https://www2019.thewebconf.org/">The Web Conference 2019</a>.
+                    </span>
+                </span>
+                <a class="mdc-list-item__meta" href="papers/2019-WWW-corhist.pdf"><i
+                        class="material-icons">folder</i></a>
+            </li>
+            <li class="mdc-list-item">
+                <span class="mdc-list-item__text">
+                    <span class="mdc-list-item__primary-text">Querying the Edit History of Wikidata</span>
+                    <span class="mdc-list-item__secondary-text">
+                        Thomas Pellissier Tanon and
+                        <a href="https://suchanek.name">Fabian Suchanek</a>,
+                        <br>
+                        <a href="https://2019.eswc-conferences.org/">ESWC 2019</a> demo session.
+                    </span>
+                </span>
+                <a class="mdc-list-item__meta" href="papers/2019-ESWC-wikidatahistory.pdf"><i class="material-icons">folder</i></a>
+            </li>
+            <li class="mdc-list-item">
+                <span class="mdc-list-item__text">
+                    <span class="mdc-list-item__primary-text">Bash Datalog: Answering Datalog Queries with Unix Shell Commands</span>
+                    <span class="mdc-list-item__secondary-text">
+                        <a href="https://www.thomasrebele.org">Thomas Rebele</a>,
+                        Thomas Pellissier Tanon and
+                        <a href="https://suchanek.name">Fabian Suchanek</a>,
+                        <br>
+                        <a href="http://iswc2018.semanticweb.org">ISWC 2018</a>.
+                        Spotlight paper.
+                    </span>
+                </span>
+                <a class="mdc-list-item__meta" href="papers/2018-ISWC-bashlog.pdf"><i class="material-icons">folder</i></a>
+            </li>
+            <li class="mdc-list-item">
+                <span class="mdc-list-item__text">
+                    <span class="mdc-list-item__primary-text">Completeness-aware Rule Learning from Knowledge Graphs</span>
+                    <span class="mdc-list-item__secondary-text">Thomas Pellissier Tanon,
+                        Daria Stepanova,
+                        <a href="http://simonrazniewski.com/">Simon Razniewski</a>,
+                        <a href="http://paramitamirza.com/">Paramita Mirza</a> and
+                        Gerhard Weikum,
+                        <br>
+                        <a href="https://www.ijcai-18.org/">IJCAI 2018</a>.
+                        Short version of <a href="#2017-ISWC-completeness">the ISWC paper</a> for the Sister Conference Best Paper track.
+                    </span>
+                </span>
+                <a class="mdc-list-item__meta" href="papers/2018-IJCAI-completeness.pdf"><i class="material-icons">folder</i></a>
+            </li>
+            <li class="mdc-list-item">
+                <span class="mdc-list-item__text">
+                    <span class="mdc-list-item__primary-text">Demoing Platypus – A Multilingual Question Answering Platform for Wikidata</span>
+                    <span class="mdc-list-item__secondary-text">
+                        Thomas Pellissier Tanon,
+                        <a href="http://www.marcosassuncao.com">Marcos Dias de Assunção</a>,
+                        Eddy Caron and
+                        <a href="https://suchanek.name">Fabian Suchanek</a>,
+                        <br>
+                        <a href="https://2018.eswc-conferences.org">ESWC 2018</a> demo session.
+                    </span>
+                </span>
+                <a class="mdc-list-item__meta" href="papers/2018-ESWC-platypus.pdf"><i class="material-icons">folder</i></a>
+            </li>
+            <li class="mdc-list-item">
+                <span class="mdc-list-item__text">
+                    <span class="mdc-list-item__primary-text">Property Label Stability in Wikidata</span>
+                    <span class="mdc-list-item__secondary-text">
+                        Thomas Pellissier Tanon and
+                        Lucie-Aimée Kaffe,
+                        <br>
+                        <a href="http://wikiworkshop.org/2018/">WikiWorkshop 2018</a>.
+                    </span>
+                </span>
+                <a class="mdc-list-item__meta" href="papers/2018-wiki-wikidataproperties.pdf"><i class="material-icons">folder</i></a>
+            </li>
+            <li class="mdc-list-item">
+                <span class="mdc-list-item__text">
+                    <span class="mdc-list-item__primary-text">A Knowledge Base for Personal Information Management</span>
+                    <span class="mdc-list-item__secondary-text">
+                        David Montoya,
+                        Thomas Pellissier Tanon,
+                        <a href="https://abiteboul.com">Serge Abiteboul</a>,
+                        <a href="http://pierre.senellart.com">Pierre Senellart</a> and
+                        <a href="https://suchanek.name">Fabian Suchanek</a>,
+                        <br>
+                        <a href="http://events.linkeddata.org/ldow2018/">LDOW 2018</a>.
+                    </span>
+                </span>
+                <a class="mdc-list-item__meta" href="papers/2018-LDOW-thymeflow.pdf"><i
+                        class="material-icons">folder</i></a>
+            </li>
+            <li class="mdc-list-item" id="2017-ISWC-completeness">
+                <span class="mdc-list-item__text">
+                    <span class="mdc-list-item__primary-text">Completeness-aware Rule Learning from Knowledge Graphs</span>
+                    <span class="mdc-list-item__secondary-text">Thomas Pellissier Tanon,
+                        Daria Stepanova,
+                        <a href="http://simonrazniewski.com/">Simon Razniewski</a>,
+                        <a href="http://paramitamirza.com/">Paramita Mirza</a> and
+                        Gerhard Weikum,
+                        <br>
+                        <a href="https://iswc2017.semanticweb.org/">ISWC 2017</a>.
+                        Nominated for the best student paper award.
+                    </span>
+                </span>
+                <a class="mdc-list-item__meta" href="papers/2017-ISWC-completeness.pdf"><i
+                        class="material-icons">folder</i></a>
+            </li>
+            <li class="mdc-list-item">
+                <span class="mdc-list-item__text">
+                    <span class="mdc-list-item__primary-text">Question Answering Benchmarks for Wikidata</span>
+                    <span class="mdc-list-item__secondary-text">
+                        Dennis Diefenbach,
+                        Thomas Pellissier Tanon,
+                        Kamal Singh and
+                        Pierre Maret,
+                        <br>
+                        <a href="https://iswc2017.semanticweb.org/">ISWC 2017</a> poster session.
+                    </span>
+                </span>
+                <a class="mdc-list-item__meta" href="papers/2017-ISWC-questionanswering.pdf"><i class="material-icons">folder</i></a>
+            </li>
+            <li class="mdc-list-item">
+                <span class="mdc-list-item__text">
+                    <span class="mdc-list-item__primary-text">Thymeflow, a personal knowledge base with spatio-temporal data</span>
+                    <span class="mdc-list-item__secondary-text">
+                        David Montoya,
+                        Thomas Pellissier Tanon,
+                        <a href="https://abiteboul.com">Serge Abiteboul</a> and
+                        <a href="https://suchanek.name">Fabian Suchanek</a>,
+                        <br>
+                        <a href="http://cikm2016.cs.iupui.edu/">CIKM 2016</a> demo session.
+                    </span>
+                </span>
+                <a class="mdc-list-item__meta" href="papers/2016-CIKM-thymeflow.pdf"><i
+                        class="material-icons">folder</i></a>
+            </li>
+            <li class="mdc-list-item">
+                <span class="mdc-list-item__text">
+                <span class="mdc-list-item__primary-text">From Freebase to Wikidata: The Great Migration</span>
+                    <span class="mdc-list-item__secondary-text">
+                        Thomas Pellissier Tanon,
+                        <a href="http://denny.vrandecic.de">Denny Vrandečić</a>,
+                        Sebastian Schaffert,
+                        <a href="https://tomayac.com">Thomas Steiner</a> and
+                        <a href="http://lydiapintscher.de">Lydia Pintscher</a>,
+                        <br>
+                        <a href="http://www2016.ca/">WWW 2016</a>.
+                    </span>
+                </span>
+                <a class="mdc-list-item__meta" href="papers/2016-WWW-freebase.pdf"><i class="material-icons">folder</i></a>
+            </li>
+        </ul>
     </section>
 </main>
 </body>
