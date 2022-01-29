@@ -1,57 +1,12 @@
-#about {
-    padding-top: 2rem;
-    padding-bottom: 0.5rem;
-    text-align: center;
+a {
+    text-decoration: none;
 }
 
-#about-img {
-    margin: auto;
-    width: 120px;
+main {
+    max-width: 60rem;
+    margin: 2rem auto 2rem auto;
 }
 
-#publi {
-    margin: auto;
-    max-width: 50rem;
+#hero-photo {
+    max-height: 14rem;
 }
-
-#publi h2 {
-    margin-left: 2rem;
-}
-
-#publi .mdc-list-item {
-    height: 90px;
-}
-
-/*
-#publi {
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-    background-color: #dddddd;
-}
-
-#publi-title {
-    text-align: center;
-}
-
-
-#publi-list {
-    display: flex;
-    flex-flow: row wrap;
-    margin-left: -2.5em;
-}
-
-#publi-list li {
-    display: block;
-    max-width: 35rem;
-    margin: auto;
-    padding: 0.5em;
-}
-
-.public-card h3 {
-    margin: 1rem;
-}
-
-.public-card p {
-    margin: 1rem;
-}
- */

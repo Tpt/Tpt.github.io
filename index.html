@@ -5,12 +5,12 @@
     <meta content="width=device-width,initial-scale=1" name="viewport">
     <title>Thomas Pellissier-Tanon</title>
     <link href="https://thomas.pellissier-tanon.fr/" rel="canonical">
-    <link href="//tools-static.wmflabs.org/cdnjs/ajax/libs/material-components-web/10.0.0/material-components-web.min.css"
+    <link href="//tools-static.wmflabs.org/cdnjs/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css"
           rel="stylesheet">
-    <link href="//tools-static.wmflabs.org/cdnjs/ajax/libs/material-design-icons/3.0.2/iconfont/material-icons.min.css"
+    <link href="//tools-static.wmflabs.org/cdnjs/ajax/libs/bootstrap-icons/1.7.2/font/bootstrap-icons.min.css"
           rel="stylesheet">
     <link href="main.css" rel="stylesheet">
-    <meta name="google-site-verification" content="bJZ21dP_OiEes7fp-U4XRhaYEaBh9Q-VjmfqPwM8aZY" />
+    <meta name="google-site-verification" content="bJZ21dP_OiEes7fp-U4XRhaYEaBh9Q-VjmfqPwM8aZY"/>
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -29,227 +29,242 @@
                 "http://www.wikidata.org/entity/Q24075199"
             ]
         }
+
     </script>
 </head>
-<body class="mdc-typography">
+<body>
 <main>
-    <div id="about">
-        <h1 class="mdc-typography--headline2">Thomas Pellissier Tanon</h1>
-        <img alt="A photo of Thomas" id="about-img" src="img/thomas-2016.jpg">
-        <div class="mdc-typography--body1">
-            <p>
-                Thomas Pellissier Tanon is a researcher at <a href="https://lexistems.com">Lexistems</a>,
-                a startup focusing on providing better search systems to its customers.
-            </p>
-            <p>
-                He did his PhD at <a href="https://www.telecom-paris.fr">Télécom Paris</a> under the supervision of
-                <a href="https://suchanek.name">Fabian Suchanek</a> and <a href="https://a3nm.net">Antoine Amarilli</a>.
-            </p>
-            <p>
-                His email address is first name at pellissier-tanon.fr.
-            </p>
+    <div class="p-5 mb-4 bg-light rounded-3">
+        <div class="container-fluid d-flex justify-content-between align-items-start">
+            <div>
+                <h1 class="display-5 fw-bold mb-4">Thomas Pellissier Tanon</h1>
+                <p class="col-md-8 fs-4">
+                    Senior software engineer. PhD.
+                </p>
+            </div>
+            <img id="hero-photo" alt="A photo of Thomas" src="img/thomas-2016.jpg" class="rounded">
         </div>
     </div>
 
-    <section id="publi" class="mdc-card mdc-card--outlined">
-        <h2 class="mdc-typography--headline4">Publications</h2>
-        <ul class="mdc-list mdc-list--two-line">
-            <li class="mdc-list-item">
-                <span class="mdc-list-item__text">
-                    <span class="mdc-list-item__primary-text">Neural Knowledge Base Repairs</span>
-                    <span class="mdc-list-item__secondary-text">
+    <section class="card bg-light border-light my-4">
+        <h5 class="card-header">
+            About
+        </h5>
+        <div class="card-body">
+            <p class="card-text">
+                I am a software Engineer with a strong research background.
+                I am mainly focusing on data management, databases, and NLP.
+            </p>
+            <p class="card-text">
+                I am currently working at <a href="https://lexistems.com">Lexistems</a>,
+                a startup focusing on providing better search systems to its customers.
+                I am leading the development of multiple products centered around speech and natural language processing
+                like <a href="https://lexistems.com/sensibletv.php">SensibleTV</a>,
+                <a href="https://lexistems.com/sensiblesummaries.php">SensibleSummaries</a>,
+                and <a href="https://lexistems.com/sensiblespeech.php">SensibleSpeech</a>.
+            </p>
+            <p class="card-text">
+                I created <a href="https://oxigraph.org">Oxigraph</a>,
+                a graph database written in <a href="https://www.rust-lang.org/">Rust</a>
+                and based on the <a href="http://rocksdb.org/">RocksDB</a> key-value store.
+                It focuses on the single-node use case and fully implements the <a href="http://www.w3.org/TR/sparql11-overview/">SPARQL language</a>.
+                It is still a work in progress but now provides competitive performances on simple OLTP workloads.
+            </p>
+            <p class="card-text">
+                My email address is first name at pellissier-tanon.fr.
+            </p>
+            <a href="https://www.linkedin.com/in/tpt93/" class="card-link">LinkedIn</a>
+            <a href="https://github.com/Tpt/" class="card-link">GitHub</a>
+            <a href="https://scholar.google.fr/citations?user=jIrS0PQAAAAJ" class="card-link">Google Scholar</a>
+        </div>
+    </section>
+
+    <section class="card border-light my-4">
+        <h5 class="card-header">
+            Academic Publications
+        </h5>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item d-flex justify-content-between align-items-start">
+                <div>
+                    <h6>Neural Knowledge Base Repairs</h6>
+                    <p class="fw-light">
                         Thomas Pellissier Tanon and <a href="https://suchanek.name">Fabian Suchanek</a>,
-                    </span>
-                    <span class="mdc-list-item__secondary-text">
-                        <a href="https://2021.eswc-conferences.org/">ESWC 2021</a>.
+                        <a href="https://2021.eswc-conferences.org/">ESWC 2021</a>.<br>
                         Won the best paper award.
-                    </span>
-                </span>
-                <a class="mdc-list-item__meta" href="papers/2021-ESWC-bass.pdf"><i
-                        class="material-icons">folder</i></a>
+                    </p>
+                </div>
+                <a class="badge bg-secondary fs-5" href="papers/2021-ESWC-bass.pdf" title="Paper in PDF"><span
+                        class="bi-file-pdf"></span></a>
             </li>
-            <li class="mdc-list-item">
-                <span class="mdc-list-item__text">
-                    <span class="mdc-list-item__primary-text">YAGO 4: A Reason-able Knowledge Base</span>
-                    <span class="mdc-list-item__secondary-text">
+            <li class="list-group-item d-flex justify-content-between align-items-start">
+                <div>
+                    <h6>YAGO 4: A Reason-able Knowledge Base</h6>
+                    <p class="fw-light">
                         Thomas Pellissier Tanon,
                         Gerhard Weikum and
                         <a href="https://suchanek.name">Fabian Suchanek</a>,
-                    </span>
-                    <span class="mdc-list-item__secondary-text">
                         <a href="https://2020.eswc-conferences.org/">ESWC 2020</a>.
-                    </span>
-                </span>
-                <a class="mdc-list-item__meta" href="papers/2020-ESWC-yago.pdf"><i
-                        class="material-icons">folder</i></a>
+                    </p>
+                </div>
+                <a class="badge bg-secondary fs-5" href="papers/2020-ESWC-yago.pdf" title="Paper in PDF"><span
+                        class="bi-file-pdf"></span></a>
             </li>
-            <li class="mdc-list-item">
-                <span class="mdc-list-item__text">
-                    <span class="mdc-list-item__primary-text">Learning How to Correct a Knowledge Base from the Edit History</span>
-                    <span class="mdc-list-item__secondary-text">
+            <li class="list-group-item d-flex justify-content-between align-items-start">
+                <div>
+                    <h6>Learning How to Correct a Knowledge Base from the Edit History</h6>
+                    <p class="fw-light">
                         Thomas Pellissier Tanon,
                         <a href="https://www.di.ens.fr/camille.bourgaux/">Camille Bourgaux</a> and
                         <a href="https://suchanek.name">Fabian Suchanek</a>,
-                    </span>
-                    <span class="mdc-list-item__secondary-text">
                         <a href="https://www2019.thewebconf.org/">The Web Conference 2019</a>.
-                    </span>
-                </span>
-                <a class="mdc-list-item__meta" href="papers/2019-WWW-corhist.pdf"><i
-                        class="material-icons">folder</i></a>
+                    </p>
+                </div>
+                <a class="badge bg-secondary fs-5" href="papers/2019-WWW-corhist.pdf" title="Paper in PDF"><span
+                        class="bi-file-pdf"></span></a>
             </li>
-            <li class="mdc-list-item">
-                <span class="mdc-list-item__text">
-                    <span class="mdc-list-item__primary-text">Querying the Edit History of Wikidata</span>
-                    <span class="mdc-list-item__secondary-text">
+            <li class="list-group-item d-flex justify-content-between align-items-start">
+                <div>
+                    <h6>Querying the Edit History of Wikidata</h6>
+                    <p class="fw-light">
                         Thomas Pellissier Tanon and
                         <a href="https://suchanek.name">Fabian Suchanek</a>,
-                    </span>
-                    <span class="mdc-list-item__secondary-text">
                         <a href="https://2019.eswc-conferences.org/">ESWC 2019</a> demo session.
-                    </span>
-                </span>
-                <a class="mdc-list-item__meta" href="papers/2019-ESWC-wikidatahistory.pdf"><i class="material-icons">folder</i></a>
+                    </p>
+                </div>
+                <a class="badge bg-secondary fs-5" href="papers/2019-ESWC-wikidatahistory.pdf"
+                   title="Paper in PDF"><span
+                        class="bi-file-pdf"></span></a>
             </li>
-            <li class="mdc-list-item">
-                <span class="mdc-list-item__text">
-                    <span class="mdc-list-item__primary-text">Bash Datalog: Answering Datalog Queries with Unix Shell Commands</span>
-                    <span class="mdc-list-item__secondary-text">
+            <li class="list-group-item d-flex justify-content-between align-items-start">
+                <div>
+                    <h6>Bash Datalog: Answering Datalog Queries with Unix Shell Commands</h6>
+                    <p class="fw-light">
                         <a href="https://www.thomasrebele.org">Thomas Rebele</a>,
                         Thomas Pellissier Tanon and
                         <a href="https://suchanek.name">Fabian Suchanek</a>,
-                    </span>
-                    <span class="mdc-list-item__secondary-text">
-                        <a href="http://iswc2018.semanticweb.org">ISWC 2018</a>.
+                        <a href="http://iswc2018.semanticweb.org">ISWC 2018</a>.<br>
                         Spotlight paper.
-                    </span>
-                </span>
-                <a class="mdc-list-item__meta" href="papers/2018-ISWC-bashlog.pdf"><i class="material-icons">folder</i></a>
+                    </p>
+                </div>
+                <a class="badge bg-secondary fs-5" href="papers/2018-ISWC-bashlog.pdf" title="Paper in PDF"><span
+                        class="bi-file-pdf"></span></a>
             </li>
-            <li class="mdc-list-item">
-                <span class="mdc-list-item__text">
-                    <span class="mdc-list-item__primary-text">Completeness-aware Rule Learning from Knowledge Graphs</span>
-                    <span class="mdc-list-item__secondary-text">Thomas Pellissier Tanon,
+            <li class="list-group-item d-flex justify-content-between align-items-start">
+                <div>
+                    <h6>Completeness-aware Rule Learning from Knowledge Graphs</h6>
+                    <p class="fw-light">Thomas Pellissier Tanon,
                         Daria Stepanova,
                         <a href="http://simonrazniewski.com/">Simon Razniewski</a>,
                         <a href="http://paramitamirza.com/">Paramita Mirza</a> and
                         Gerhard Weikum,
-                    </span>
-                    <span class="mdc-list-item__secondary-text">
-                        <a href="https://www.ijcai-18.org/">IJCAI 2018</a>.
-                        Short version of <a href="#2017-ISWC-completeness">the ISWC paper</a> for the Sister Conference Best Paper track.
-                    </span>
-                </span>
-                <a class="mdc-list-item__meta" href="papers/2018-IJCAI-completeness.pdf"><i class="material-icons">folder</i></a>
+                        <a href="https://www.ijcai-18.org/">IJCAI 2018</a>.<br>
+                        Short version of <a href="#2017-ISWC-completeness">the ISWC paper</a> for the Sister Conference
+                        Best Paper track.
+                    </p>
+                </div>
+                <a class="badge bg-secondary fs-5" href="papers/2018-IJCAI-completeness.pdf" title="Paper in PDF"><span
+                        class="bi-file-pdf"></span></a>
             </li>
-            <li class="mdc-list-item">
-                <span class="mdc-list-item__text">
-                    <span class="mdc-list-item__primary-text">Demoing Platypus – A Multilingual Question Answering Platform for Wikidata</span>
-                    <span class="mdc-list-item__secondary-text">
+            <li class="list-group-item d-flex justify-content-between align-items-start">
+                <div>
+                    <h6>Demoing Platypus – A Multilingual Question Answering Platform for Wikidata</h6>
+                    <p class="fw-light">
                         Thomas Pellissier Tanon,
                         <a href="http://www.marcosassuncao.com">Marcos Dias de Assunção</a>,
                         Eddy Caron and
                         <a href="https://suchanek.name">Fabian Suchanek</a>,
-                    </span>
-                    <span class="mdc-list-item__secondary-text">
                         <a href="https://2018.eswc-conferences.org">ESWC 2018</a> demo session.
-                    </span>
-                </span>
-                <a class="mdc-list-item__meta" href="papers/2018-ESWC-platypus.pdf"><i class="material-icons">folder</i></a>
+                    </p>
+                </div>
+                <a class="badge bg-secondary fs-5" href="papers/2018-ESWC-platypus.pdf" title="Paper in PDF"><span
+                        class="bi-file-pdf"></span></a>
             </li>
-            <li class="mdc-list-item">
-                <span class="mdc-list-item__text">
-                    <span class="mdc-list-item__primary-text">Property Label Stability in Wikidata</span>
-                    <span class="mdc-list-item__secondary-text">
+            <li class="list-group-item d-flex justify-content-between align-items-start">
+                <div>
+                    <h6>Property Label Stability in Wikidata</h6>
+                    <p class="fw-light">
                         Thomas Pellissier Tanon and
                         Lucie-Aimée Kaffe,
-                    </span>
-                    <span class="mdc-list-item__secondary-text">
                         <a href="http://wikiworkshop.org/2018/">WikiWorkshop 2018</a>.
-                    </span>
-                </span>
-                <a class="mdc-list-item__meta" href="papers/2018-wiki-wikidataproperties.pdf"><i class="material-icons">folder</i></a>
+                    </p>
+                </div>
+                <a class="badge bg-secondary fs-5" href="papers/2018-wiki-wikidataproperties.pdf"
+                   title="Paper in PDF"><span
+                        class="bi-file-pdf"></span></a>
             </li>
-            <li class="mdc-list-item">
-                <span class="mdc-list-item__text">
-                    <span class="mdc-list-item__primary-text">A Knowledge Base for Personal Information Management</span>
-                    <span class="mdc-list-item__secondary-text">
+            <li class="list-group-item d-flex justify-content-between align-items-start">
+                <div>
+                    <h6>A Knowledge Base for Personal Information Management</h6>
+                    <p class="fw-light">
                         David Montoya,
                         Thomas Pellissier Tanon,
                         <a href="https://abiteboul.com">Serge Abiteboul</a>,
                         <a href="http://pierre.senellart.com">Pierre Senellart</a> and
                         <a href="https://suchanek.name">Fabian Suchanek</a>,
-                    </span>
-                    <span class="mdc-list-item__secondary-text">
                         <a href="http://events.linkeddata.org/ldow2018/">LDOW 2018</a>.
-                    </span>
-                </span>
-                <a class="mdc-list-item__meta" href="papers/2018-LDOW-thymeflow.pdf"><i
-                        class="material-icons">folder</i></a>
+                    </p>
+                </div>
+                <a class="badge bg-secondary fs-5" href="papers/2018-LDOW-thymeflow.pdf" title="Paper in PDF"><span
+                        class="bi-file-pdf"></span></a>
             </li>
-            <li class="mdc-list-item" id="2017-ISWC-completeness">
-                <span class="mdc-list-item__text">
-                    <span class="mdc-list-item__primary-text">Completeness-aware Rule Learning from Knowledge Graphs</span>
-                    <span class="mdc-list-item__secondary-text">Thomas Pellissier Tanon,
+            <li class="list-group-item d-flex justify-content-between align-items-start" id="2017-ISWC-completeness">
+                <div>
+                    <h6>Completeness-aware Rule Learning from Knowledge Graphs</h6>
+                    <p class="fw-light">Thomas Pellissier Tanon,
                         Daria Stepanova,
                         <a href="http://simonrazniewski.com/">Simon Razniewski</a>,
                         <a href="http://paramitamirza.com/">Paramita Mirza</a> and
                         Gerhard Weikum,
-                    </span>
-                    <span class="mdc-list-item__secondary-text">
-                        <a href="https://iswc2017.semanticweb.org/">ISWC 2017</a>.
+                        <a href="https://iswc2017.semanticweb.org/">ISWC 2017</a>.<br>
                         Nominated for the best student paper award.
-                    </span>
-                </span>
-                <a class="mdc-list-item__meta" href="papers/2017-ISWC-completeness.pdf"><i
-                        class="material-icons">folder</i></a>
+                    </p>
+                </div>
+                <a class="badge bg-secondary fs-5" href="papers/2017-ISWC-completeness.pdf" title="Paper in PDF"><span
+                        class="bi-file-pdf"></span></a>
             </li>
-            <li class="mdc-list-item">
-                <span class="mdc-list-item__text">
-                    <span class="mdc-list-item__primary-text">Question Answering Benchmarks for Wikidata</span>
-                    <span class="mdc-list-item__secondary-text">
+            <li class="list-group-item d-flex justify-content-between align-items-start">
+                <div>
+                    <h6>Question Answering Benchmarks for Wikidata</h6>
+                    <p class="fw-light">
                         Dennis Diefenbach,
                         Thomas Pellissier Tanon,
                         Kamal Singh and
                         Pierre Maret,
-                    </span>
-                    <span class="mdc-list-item__secondary-text">
                         <a href="https://iswc2017.semanticweb.org/">ISWC 2017</a> poster session.
-                    </span>
-                </span>
-                <a class="mdc-list-item__meta" href="papers/2017-ISWC-questionanswering.pdf"><i class="material-icons">folder</i></a>
+                    </p>
+                </div>
+                <a class="badge bg-secondary fs-5" href="papers/2017-ISWC-questionanswering.pdf"
+                   title="Paper in PDF"><span
+                        class="bi-file-pdf"></span></a>
             </li>
-            <li class="mdc-list-item">
-                <span class="mdc-list-item__text">
-                    <span class="mdc-list-item__primary-text">Thymeflow, a personal knowledge base with spatio-temporal data</span>
-                    <span class="mdc-list-item__secondary-text">
+            <li class="list-group-item d-flex justify-content-between align-items-start">
+                <div>
+                    <h6>Thymeflow, a personal knowledge base with spatio-temporal data</h6>
+                    <p class="fw-light">
                         David Montoya,
                         Thomas Pellissier Tanon,
                         <a href="https://abiteboul.com">Serge Abiteboul</a> and
                         <a href="https://suchanek.name">Fabian Suchanek</a>,
-                    </span>
-                    <span class="mdc-list-item__secondary-text">
                         <a href="http://cikm2016.cs.iupui.edu/">CIKM 2016</a> demo session.
-                    </span>
-                </span>
-                <a class="mdc-list-item__meta" href="papers/2016-CIKM-thymeflow.pdf"><i
-                        class="material-icons">folder</i></a>
+                    </p>
+                </div>
+                <a class="badge bg-secondary fs-5" href="papers/2016-CIKM-thymeflow.pdf" title="Paper in PDF"><span
+                        class="bi-file-pdf"></span></a>
             </li>
-            <li class="mdc-list-item">
-                <span class="mdc-list-item__text">
-                <span class="mdc-list-item__primary-text">From Freebase to Wikidata: The Great Migration</span>
-                    <span class="mdc-list-item__secondary-text">
+            <li class="list-group-item d-flex justify-content-between align-items-start">
+                <div>
+                    <h6>From Freebase to Wikidata: The Great Migration</h6>
+                    <p class="fw-light">
                         Thomas Pellissier Tanon,
                         <a href="http://denny.vrandecic.de">Denny Vrandečić</a>,
                         Sebastian Schaffert,
                         <a href="https://tomayac.com">Thomas Steiner</a> and
                         <a href="http://lydiapintscher.de">Lydia Pintscher</a>,
-                    </span>
-                    <span class="mdc-list-item__secondary-text">
                         <a href="http://www2016.ca/">WWW 2016</a>.
-                    </span>
-                </span>
-                <a class="mdc-list-item__meta" href="papers/2016-WWW-freebase.pdf"><i class="material-icons">folder</i></a>
+                    </p>
+                </div>
+                <a class="badge bg-secondary fs-5" href="papers/2016-WWW-freebase.pdf" title="Paper in PDF"><span
+                        class="bi-file-pdf"></span></a>
             </li>
         </ul>
     </section>
