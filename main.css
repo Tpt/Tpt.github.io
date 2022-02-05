@@ -10,3 +10,7 @@ main {
 #hero-photo {
     max-height: 14rem;
 }
+
+:target {
+    background-color:  rgba(0,0,0,.15);
+}
