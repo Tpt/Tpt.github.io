@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width,initial-scale=1" name="viewport">
+    <title>Is there something better than Blazegraph for Wikidata?</title>
+    <link href="https://thomas.pellissier-tanon.fr/blog/2023-01-15-wdqs.html" rel="canonical">
+    <link href="https://tools-static.wmflabs.org/cdnjs/ajax/libs/bootstrap/5.2.2/css/bootstrap.min.css"
+          rel="stylesheet">
+    <link href="../main.css" rel="stylesheet">
+    <meta name="author" content="Thomas Pellissier Tanon">
+    <meta property="og:title" content="Is there something better than Blazegraph for Wikidata?">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://thomas.pellissier-tanon.fr/blog/2023-01-15-wdqs.html">
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:creator" content="@Tpt93" />
+</head>
+<body>
+<header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+    <a href="/" class="d-flex align-items-center mx-4 mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+        <span class="fs-4">Thomas Pellissier Tanon</span>
+    </a>
+</header>
+<main class="my-4">
+    <section class="card bg-light border-light my-4">
+        <div class="card-body">
+            <h1 class="card-title display-3 my-4">Is there something better than Blazegraph for Wikidata?</h1>
+            <p class="card-text" style="font-style: italic;">
+                The following are some quickly written ideas about the current state of SPARQL systems allowing to query Wikidata.
+                It is a bit of a follow-up to <a href="https://harej.co/posts/2023/01/loading-wikidata-into-different-graph-databases-blazegraph-qlever/">James' blog post on the subject</a> and <a href="https://www.wikidata.org/wiki/Wikidata:SPARQL_query_service/WDQS_backend_update/WDQS_backend_alternatives">the great Wikimedia work on a possible alternative to Blazegraph for the Wikidata Query Service</a>.
+                This is just my own thought to keep the conversation going.
+                It is very likely to contain wrong affirmations.
+                A lot of affirmations are just gut feelings not supported by benchmarks.
+                Feedbacks and benchmarks are more than welcome.
+            </p>
+            <section class="my-4">
+                <h3>The challenge</h3>
+                <p>
+                    The current Wikidata query service is powered by <a href="https://blazegraph.com/">Blazegraph</a>.
+                    Blazegraph is an RDF database implementing SPARQL that is aimed at providing fast analytic queries using SPARQL.
+                    It has seen a lot of progress before the acquisition by Amazon of the company developing it.
+                    It has been chosen to be the backend software for the new Wikidata Query Service in 2015 after <a href="https://docs.google.com/spreadsheets/d/1MXikljoSUVP77w7JKf9EXN40OB-ZkMqT8Y5b2NYVKbU">some great comparison work</a>.
+                </p>
+                <p>
+                    However, since its adoption, it has been left in an unmaintained state and shows some limits with respect to the very high update speed of Wikidata.
+                    Indeed, it seems to me that Blazegraph developers have focused more on complex analytical query performances at the cost of update speed, maybe because most RDF data are mostly static and do not change much.
+                    For example, it leads them to not allow concurrent but only sequential updates.
+                </p>
+                <p>
+                    To formalize the problem, the Wikidata Query Service presents a very atypical workload:
+                </p>
+                <ul>
+                    <li>A very high rate of small updates similar to <a href="https://en.wikipedia.org/wiki/Online_transaction_processing" title="Online transaction processing">OLTP</a>-style workloads to be able to keep up with Wikidata changes.</li>
+                    <li>Complex queries span sometimes a large part of the database similar to <a href="https://en.wikipedia.org/wiki/Online_analytical_processing" title="Online analytical processing">OLAP</a>-style workloads.</li>
+                </ul>
+                <p>
+                    Supporting this kind of hybrid workload while having full SPARQL support seems to be an important requirement for any system that might be considered to replace Blazegraph.
+                    However, it seems to me that only targeting one of the two kinds of workload (OLAP vs OLTP) is not something specific to Blazegraph but is very common in databases. Most of the systems are focusing either on OLAP or on OLTP, with OLAP being the main focus of most SPARQL systems.
+                </p>
+            </section>
+            <section class="my-4">
+                <h3>The other systems</h3>
+                <p class="card-text" style="font-style: italic;">
+                    Note: I restricted myself here to open-source systems implementing SPARQL.
+                    The list is fairly incomplete, please reach out if you know another interesting system to add to the list.
+                    For people wanting to know more about how to implement SPARQL and the existing implementations in general, there is <a href="https://arxiv.org/pdf/2102.13027.pdf">this great survey</a>.
+                </p>
+                <section class="my-4">
+                    <h4>The main contender: <a href="https://virtuoso.openlinksw.com/">Virtuoso</a></h4>
+                    <p>
+                        Virtuoso is a SPARQL implementation developed for more than a decade by a small company, OpenLink Software.
+                        It is at its core a SQL database targeting OLAP workloads with a layer on top converting SPARQL to SQL.
+                        It seems to provide great performances, powering very large endpoints like <a href="https://www.uniprot.org/">Uniprot</a>.
+                        However, according to <a href="https://upload.wikimedia.org/wikipedia/commons/e/ea/WDQS_Backend_Alternatives_working_paper.pdf">WDQS Backend Alternative work</a>, Virtuoso is also <q>tuned for bulk-load with high-frequency read, and not for read/write</q>.
+                        But, this is also the case with Blazegraph.
+                        So, it might be interesting to do a good benchmark to see if it actually outperforms Blazegraph or not.
+                    </p>
+                </section>
+                <section class="my-4">
+                    <h4>The read-only systems: <a href="https://github.com/ad-freiburg/qlever">QLever</a>, <a href="https://www.rdfhdt.org/">HDT</a>, <a href="https://github.com/the-qa-company/qEndpoint">QEndpoint</a>...</h4>
+                    <p>
+                        To my knowledge, all of these systems rely on derived techniques introduced by <a href="https://pure.mpg.de/rest/items/item_1324253/component/file_1324252/content">RDF-3X</a>.
+                        These systems encode the sorted RDF terms using consecutive integers and build fast and compact indexes using this property.
+                        It allows great read performances but makes insertions and deletions complex.
+                        For example, if we have a database with only the RDF terms "a" and "c", then "a" should be encoded by 0 and "c" by 1 ("a" < "c").
+                        However, if we insert afterward "b", then "b" takes for identifier 1 and the identifier of "c" is moved to 2 ("a" < "b" < "c"), requiring to update all the indexes using the fact that "c" was identified by 1.
+                        I am not aware of any work to make a continuous small updates workload compatible with this approach.
+                        It seems likely these systems will not be suitable for Wikidata needs except if some research work shows that such techniques could be made compatible with write-heavy workloads.
+                    </p>
+                </section>
+                <section class="my-4">
+                    <h4>The toolkits: <a href="https://jena.apache.org/">Apache Jena</a> and <a href="https://rdf4j.org/">Eclipse RDF4J</a></h4>
+                    <p>
+                        Jena and RDF4J are two well-maintained, mature, and full of features RDF toolkits written in Java.
+                        They both provide native storage systems with SPARQL.
+                        However, they seem to be mostly focused on light or medium workloads.
+                        Their latest storage systems, <a href="https://jena.apache.org/documentation/tdb/architecture.html">TDB 2 for Jena</a> and <a href="https://rdf4j.org/documentation/programming/lmdb-store/">LMDB for RDF4J</a> both allow only a single writer thread and use a copy-on-write mechanism.
+                        So, we end up with the same problem as Virtuoso.
+                        To my knowledge, they seem to not be widely used for large datasets, opposite to Virtuoso.
+                        I would be very curious to see good benchmarks on how well they behave, especially now that RDF4J seems to have made <a href="https://rdf4j.org/news/2022/07/31/rdf4j-4.1.0-released/">some performance efforts in the past year</a>.
+                    </p>
+                </section>
+                <section class="my-4">
+                    <h4>The work-in-progress system: <a href="https://oxigraph.org/">Oxigraph</a></h4>
+                    <p>
+                        Oxigraph is a work-in-progress SPARQL system aiming at write-heavy workloads.
+                        It is based on the <a href="http://rocksdb.org/">RocksDB</a> key-value store that targets such workloads.
+                        It is developed by myself as a hobby project, at a very slow speed.
+                        The SPARQL implementation is complete and basic OLTP operations <a href="https://github.com/oxigraph/oxigraph/tree/main/bench">seem fairly competitive</a>.
+                        However, before being able to maybe work at Wikidata-scale it still requires at least two significant improvements.
+                        The initial loader is quite slow.
+                        Loading Wikidata takes more than a week currently.
+                        Also, Oxigraph does not contain yet a proper query planner and optimizer, leading to abysmal performances for complex analytical queries.
+                        So, Oxigraph is unlikely to be able to solve Wikidata problems very soon, even when omitting the "<a href="https://en.wikipedia.org/wiki/Bus_factor">bus factor</a> 1" problem.
+                    </p>
+                </section>
+                <section class="my-4">
+                    <h4>The dead experiment: <a href="https://www.wikidata.org/wiki/Wikidata:History_Query_Service">History Query Service</a></h4>
+                    <p>
+                        The History Query Service is a tool I developed to run big analytical queries on Wikidata history.
+                        To this aim, I built a custom storage tailored for its need using RocksDB and used RDF4J on top of it for the SPARQL evaluation.
+                        Sadly it suffered from strong shortcomings:
+                        The process to build the index took a week on 2018 full Wikidata history dumps and I never managed to make it work again on more recent dumps.
+                        Also, it never supported updates.
+                        The query evaluation itself was based on the current state of RDF4J at this time, leading to fair but not great query plans and quite slow execution time.
+                    </p>
+                    <p>
+                        However, I believe it has shown some interesting ideas.
+                        Building custom storage for Wikidata history is possible and does not lead to huge space expansion compared to the indexing of only the latest version while allowing fairly efficient querying.
+                        I hope at one point to be able to build an optimized version 2 using Oxigraph.
+                        But, to be worth it, it requires Oxigraph to have a good and fast SPARQL query planner and evaluator.
+                        So, it is not for tomorrow.
+                    </p>
+                </section>
+            </section>
+            <section>
+                <h3>Conclusion</h3>
+                <p>
+                    Like everyone before me, it seems to me there is no good answer for Blazegraph replacement. At first glance, Virtuoso seems worth benchmarking to see if it's actually better or worse than Blazegraph.
+                    I hope that Oxigraph might provide something in the future, but it will not happen until many years at the current development speed.
+                    Investigating using Jena or RDF4J with custom storage providing good enough update performances might also be something to do, following the History Query Service ideas.
+                </p>
+            </section>
+        </div>
+    </section>
+</main>
+</body>
+</html>

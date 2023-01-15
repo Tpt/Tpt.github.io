@@ -14,3 +14,7 @@ main {
 :target {
     background-color:  rgba(0,0,0,.15);
 }
+
+p {
+    text-align: justify;
+}
