@@ -78,14 +78,17 @@
                 </section>
                 <section class="my-4">
                     <h4>The read-only systems: <a href="https://github.com/ad-freiburg/qlever">QLever</a>, <a href="https://www.rdfhdt.org/">HDT</a>, <a href="https://github.com/the-qa-company/qEndpoint">QEndpoint</a>...</h4>
+                    <p class="card-text" style="font-style: italic;">
+                        This section has been rewritten after <a href="https://twitter.com/klinovp/status/1615281766364856322">a great feedback from Pavel Klinov</a>. Thank you so much!
+                    </p>
                     <p>
                         To my knowledge, all of these systems rely on derived techniques introduced by <a href="https://pure.mpg.de/rest/items/item_1324253/component/file_1324252/content">RDF-3X</a>.
-                        These systems encode the sorted RDF terms using consecutive integers and build fast and compact indexes using this property.
-                        It allows great read performances but makes insertions and deletions complex.
-                        For example, if we have a database with only the RDF terms "a" and "c", then "a" should be encoded by 0 and "c" by 1 ("a" < "c").
-                        However, if we insert afterward "b", then "b" takes for identifier 1 and the identifier of "c" is moved to 2 ("a" < "b" < "c"), requiring to update all the indexes using the fact that "c" was identified by 1.
-                        I am not aware of any work to make a continuous small updates workload compatible with this approach.
-                        It seems likely these systems will not be suitable for Wikidata needs except if some research work shows that such techniques could be made compatible with write-heavy workloads.
+                        They encode the RDF terms using consecutive integers and build fast and compact indexes using this property.
+                        It seems possible to make these systems read-write by implementing techniques inspired by <a href="https://en.wikipedia.org/wiki/Log-structured_merge-tree" title="Log-structured merge-tree">LSM trees</a>.
+                        The basic idea of LSM trees is to build immutable partial indexes. When updates are done, the systems batch changes in memory, and, after a given threshold, create a new partial index.
+                        To speed up reads, the implementations often run background tasks to create bigger indexes by merging the smaller ones together.
+                        But it seems to be a significant implementation work.
+                        So, it is likely that these systems will not be suitable for Wikidata in the short term.
                     </p>
                 </section>
                 <section class="my-4">
